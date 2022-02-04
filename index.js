@@ -12,6 +12,19 @@ class ContaCorrente{
             this.saldo -= valor;
         }
     }
+
+    depositar(valor){
+       /* if(valor >= 0){
+            this.saldo += valor;
+        }
+        outra forma de escrever */
+
+        //verificar tudo que eu não quero com um return para parar o código
+        if(valor <= 0) {
+            return;
+        }
+        this.saldo += valor;
+    }
 }
 
 //Criando um novo Cliente
@@ -25,19 +38,11 @@ contaCorrenteDoRicardo.agencia = 1001;
 contaCorrenteDoRicardo.saldo = 0;
 
 //Operações de depósito e saque
-console.log(contaCorrenteDoRicardo.saldo)
-contaCorrenteDoRicardo.saldo = 100;
-console.log(contaCorrenteDoRicardo.saldo)
-contaCorrenteDoRicardo.sacar(50)
-console.log(contaCorrenteDoRicardo.saldo)
+contaCorrenteDoRicardo.depositar(100);
+contaCorrenteDoRicardo.depositar(-100) //não deposita pois o número é negativo, validado na classe
+
+const valorSacado = contaCorrenteDoRicardo.sacar(50);
+console.log(valorSacado)
 
 
-const cliente2 = new Cliente();
-cliente2.nome = "Alice";
-cliente2.cpf = 88822233309;
-
-const contaCorrenteDaAlice = new ContaCorrente();
-contaCorrenteDaAlice.agencia = 1001;
-contaCorrenteDaAlice.saldo = 0;
-
-console.log(cliente1);
+console.log(contaCorrenteDoRicardo)
